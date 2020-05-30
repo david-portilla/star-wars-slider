@@ -1,0 +1,104 @@
+/**
+ * Slider Component
+ */
+ 
+ .c-slider {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.c-slider__controls {
+  border: 0.1rem solid red;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  top: calc(50% - 2rem);
+  position: absolute;
+  /* width: 60rem; */
+  width: calc(100% - 1rem);
+  max-width: 85rem;
+}
+
+.c-slider__controls-btn {
+  border-radius: 100%;
+  cursor: pointer;
+  width: 3.5rem;
+  height: 3.5rem;
+  overflow: hidden;
+  /* min-width: 8rem; */
+  padding: 1rem;
+}
+
+.c-slider__container {
+  display: flex;
+  height: 60rem;
+  /* padding: 1rem; */
+  overflow: hidden;
+  margin-bottom: 5rem;
+  max-width: 65rem;
+  width: calc(100% - 10rem);
+}
+
+.c-card {
+  background-color: lavender;
+  /* align-items: center;
+  display: flex;
+  justify-content: center; */
+  overflow: hidden;
+}
+
+.c-list {
+  display: flex;
+  flex-direction: row;
+  border: 0.1rem solid red;
+  margin: 0 auto;
+  transition: all 0.3s ease-in;
+}
+
+/*  LOADING ANIMATION  */
+.loading {
+  opacity: 0;
+  display: flex;
+  /* position: fixed; */
+  position: absolute;
+  /* bottom: 50px; */
+  bottom: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 0.3s ease-in;
+}
+
+.loading.show {
+  opacity: 1;
+}
+
+.ball {
+  background-color: #777;
+  border-radius: 50%;
+  margin: 5px;
+  height: 10px;
+  width: 10px;
+  animation: jump 0.5s ease-in infinite;
+}
+
+.ball:nth-of-type(2) {
+  animation-delay: 0.1s;
+}
+
+.ball:nth-of-type(3) {
+  animation-delay: 0.2s;
+}
+
+@keyframes jump {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
