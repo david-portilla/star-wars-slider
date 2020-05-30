@@ -1,5 +1,5 @@
 {
-  "name": "Swapi Store",
+  "name": "swapi-store",
   "version": "1.0.0",
   "description": "Swapi Store vanilla JS",
   "main": "index.js",
@@ -8,13 +8,21 @@
     "dev": "webpack --config webpack.config.js"
   },
   "keywords": [
-    "Zemoga",
-    "Frontend"
+    "Swapi",
+    "Star Wars"
   ],
   "author": "David Portilla ( david_portilla@hotmail.com )",
   "license": "ISC",
   "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "browser-sync-webpack-plugin": "^2.2.2",
+    "css-loader": "^3.5.3",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.8.3",
+    "sass": "^1.26.5",
+    "sass-loader": "^8.0.2",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
