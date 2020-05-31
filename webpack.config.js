@@ -5,7 +5,6 @@ const StylelintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = {
 
-  // entry: './src/js/index.js',
   entry: {
     main: [ './src/js/index.js', './src/scss/style.scss' ],
   },
