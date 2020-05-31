@@ -3,7 +3,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 // const autoprefixer = require('autoprefixer')
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
-// const StylelintPlugin = require('stylelint-webpack-plugin');
+const StylelintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = {
 
@@ -48,8 +48,6 @@ module.exports = {
       {
         test: /\.(sa|sc|c)ss$/,
         use: [
-          // Generate index.css
-          // { loader: MiniCssExtractPlugin.loader },
           // Translates CSS into CommonJS
           { loader: "css-loader" },
           //     // Autoprefix Sass files
@@ -86,17 +84,15 @@ module.exports = {
   },
 
   plugins: [
-    // // linter scss
-    // new StylelintPlugin({
-    //   configFile: './.stylelintrc',
-    //   context: 'src/scss',
-    //   files: '**/*.scss',
-    //   failOnError: false,
-    //   quiet: false,
-    //   emitErrors: true,
-    //   fix: true // auto fix lint css rules
-    // }),
-    // Generate index.css after compile .scss
+    // Enable Linter SCSS
+    new StylelintPlugin({
+      configFile: './.stylelintrc', // File to use for linting
+      context: 'src/scss', // A string indicating the root of your files
+      files: '**/*.scss', // Specify the glob pattern for finding files
+      emitError: true, // Return errors
+      fix: true // Auto fix lint css rules
+    }),
+    // Generate index.css after compile /.scss
     new MiniCssExtractPlugin({
       filename: "index.css"
     }),
