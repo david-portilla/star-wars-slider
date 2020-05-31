@@ -14,9 +14,9 @@ class Slider {
     //   });
     console.log('init Slider')
 
-    const loading = selectId('loading')
-    const nextBtn = selectId('js-next')
-    const prevBtn = selectId('js-prev')
+    // const loading = selectId('loading')
+    // const nextBtn = selectId('js-next')
+    // const prevBtn = selectId('js-prev')
 
     // // Event Listerners
     // nextBtn.addEventListener('click', controlDirection)

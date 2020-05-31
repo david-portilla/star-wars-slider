@@ -20,28 +20,28 @@ module.exports = {
 
   module: {
     rules: [
-      // // linter js
-      // {
-      //   test: /\.js$/,
-      //   exclude: /node_modules/,
-      //   loader: 'eslint-loader',
-      //   options: {
-      //     emitError: true,
-      //     emitWarning: true,
-      //   },
-      // },
-      // // transpile js
-      // {
-      //   test: /\.js$/,
-      //   exclude: /node_modules/,
-      //   use: {
-      //     loader: 'babel-loader',
-      //     options: {
-      //       presets: [ '@babel/preset-env' ]
-      //     }
-      //   }
-      // },
-      // create index.css, minify, autoprefixer
+      // linter js
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader',
+        options: {
+          emitError: true,
+          emitWarning: true,
+        },
+      },
+      // transpile js
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [ '@babel/preset-env' ]
+          }
+        }
+      },
+      // create index.css, minify, autoprefix
       {
         test: /\.(sa|sc|c)ss$/,
         use: [
