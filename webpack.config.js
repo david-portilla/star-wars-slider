@@ -45,27 +45,31 @@ module.exports = {
       {
         test: /\.(sa|sc|c)ss$/,
         use: [
+          // Update index.css on changes
+          { loader: MiniCssExtractPlugin.loader },
           // Translates CSS into CommonJS
           { loader: "css-loader" },
-          //     // Autoprefix Sass files
-          //     {
-          //       loader: require.resolve('postcss-loader'),
-          //       options: {
-          //         ident: 'postcss',
-          //         plugins: () => [
-          //           autoprefixer({
-          //             overrideBrowserslist: [
-          //               '>1%',
-          //               'last 4 versions',
-          //               'Firefox ESR',
-          //               'not ie < 9'
-          //             ],
-          //             flexbox: 'no-2009',
-          //             grid: true
-          //           })
-          //         ]
-          //       }
-          //     },
+          // Autoprefix Sass files
+          {
+            loader: "postcss-loader",
+            options: {
+              ident: 'postcss',
+              plugins: [
+                require('autoprefixer')(
+                  {
+                    overrideBrowserslist: [
+                      '>1%',
+                      'last 4 versions',
+                      'Firefox ESR',
+                      'not ie < 9'
+                    ],
+                    flexbox: 'no-2009',
+                    grid: true
+                  }
+                ),
+              ]
+            }
+          },
           // Compiles Sass to CSS
           { loader: 'sass-loader' },
         ]
@@ -89,11 +93,11 @@ module.exports = {
       emitError: true, // Return errors
       fix: true // Auto fix lint css rules
     }),
-    // Generate index.css after compile /.scss
+    // Generate index.css on load after compile main style.scss
     new MiniCssExtractPlugin({
       filename: "index.css"
     }),
-    // sync browser
+    // Sync browser
     new BrowserSyncPlugin({
       // browse to http://localhost:3000/ during development,
       // ./public directory is being served
