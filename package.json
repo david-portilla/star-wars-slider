@@ -18,6 +18,7 @@
     "@babel/preset-env": "^7.10.2",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
+    "babel-polyfill": "^6.26.0",
     "browser-sync": "^2.26.7",
     "browser-sync-webpack-plugin": "^2.2.2",
     "css-loader": "^3.5.3",
