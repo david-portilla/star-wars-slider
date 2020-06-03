@@ -1,6 +1,5 @@
-import Slider from './components/Slider'
+import Fetch from './components/Fetch'
 
 /*eslint-disable */
-// console.log('Hi webpack')
-let slider = new Slider()
+let pullData = new Fetch()
 /*eslint-enable */
