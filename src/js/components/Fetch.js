@@ -1,13 +1,14 @@
+import { selectId } from '../helpers'
 import Slider from './Slider'
 
 /*eslint-disable */
 
 class Fetch {
   constructor() {
-    console.log('Fetch.js')
-    this.selectId = document.getElementById.bind(document);
-    this.loading = this.selectId('loading')
-    this.container = this.selectId('listContainer')
+    // console.log('Fetch.js')
+    // this.selectId = document.getElementById.bind(document);
+    this.loading = selectId('loading')
+    this.container = selectId('listContainer')
 
     // bind methods
     this.showLoading = this.showLoading.bind(this)
@@ -16,7 +17,9 @@ class Fetch {
     this.init()
   }
   init () {
-    console.log('init Fetch')
+    // console.log('init Fetch')
+
+    let slider = new Slider()  // eslint-disable-line
 
     // call type element to draw
     this.fetchItem('starships')
@@ -65,7 +68,7 @@ class Fetch {
         results ? this.showLoading(false) : this.showLoading(true)
       }
       // when all data is ready initialize Slider
-      let slider = new Slider()  // eslint-disable-line
+      // let slider = new Slider()  // eslint-disable-line
     } catch (error) {
       console.log("Awaiting Movies Failed: ", error.message);
     }

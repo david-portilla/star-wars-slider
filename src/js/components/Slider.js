@@ -1,37 +1,41 @@
+import { selectId } from '../helpers'
 class Slider {
   constructor() {
-    console.log('Slider.js')
-    // const select = document.querySelector.bind(document);
-    // const selectAll = document.querySelectorAll.bind(document);
-    // this.selectId = document.getElementById.bind(document);
-    // this.loading = this.selectId('loading')
-    // this.container = this.selectId('listContainer')
+    // console.log('Slider.js')
+    this.next = selectId('js-next')
+    this.prev = selectId('js-prev')
+    this.container = selectId('listContainer')
+    this.movement = 0
 
     // bind methods
-    // this.showLoading = this.showLoading.bind(this)
+    this.controlDirection = this.controlDirection.bind(this)
 
     // call init method
     this.init()
-
   }
 
   init () {
-    console.log('init Slider')
+    // console.log('init Slider')
+    this.next.addEventListener("click", (e) => {
+      this.controlDirection(e.target.id)
+    });
+    this.prev.addEventListener("click", (e) => {
+      this.controlDirection(e.target.id)
+    });
   }
 
   // handle direction of the slider
-  controlDirection () {
-    // let value = 0;
-    // if (this.id === "js-next") {
-    //   value -= 400;
-    //   console.log("scroll next", value);
-    //   container.style.transform = `translateX(${ value }px)`;
-    // }
-    // if (this.id === "js-prev") {
-    //   value += 400;
-    //   console.log("scroll prev", value);
-    //   container.style.transform = `translateX(${ value }px)`;
-    // }
+  controlDirection (id) {
+    if (id === 'js-next') {
+      this.movement -= 400;
+      console.log('scroll next', this.movement);
+      this.container.style.transform = `translateX(${ this.movement }px)`;
+    }
+    if (id === 'js-prev') {
+      this.movement += 400;
+      console.log('scroll prev', this.movement);
+      this.container.style.transform = `translateX(${ this.movement }px)`;
+    }
   }
 }
 

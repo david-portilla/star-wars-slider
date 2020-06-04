@@ -7,102 +7,47 @@
   display: flex;
   flex-direction: column;
   position: relative;
-}
 
-.c-slider__controls {
-  border: 0.3rem solid red;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  max-width: 85rem;
-  position: absolute;
-  top: calc(50% - 2rem);
+  &__controls {
+    // border: 0.3rem solid red;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 85rem;
+    position: absolute;
+    top: calc(50% - 2rem);
 
-  /* width: 60rem; */
-  width: calc(100% - 1rem);
-}
+    /* width: 60rem; */
+    width: calc(100% - 1rem);
 
-.c-slider__controls-btn {
-  border-radius: 100%;
-  cursor: pointer;
-  height: 3.5rem;
-  overflow: hidden;
+    &-btn {
+      border-radius: 100%;
+      cursor: pointer;
+      height: 3.5rem;
+      overflow: hidden;
 
-  /* min-width: 8rem; */
-  padding: 1rem;
-  width: 3.5rem;
-}
-
-.c-slider__container {
-  display: flex;
-  height: 60rem;
-  margin-bottom: 5rem;
-  max-width: 65rem;
-
-  /* padding: 1rem; */
-  overflow: hidden;
-  width: calc(100% - 10rem);
-}
-
-.c-card {
-  background-color: lavender;
-
-  /* align-items: center;
-  display: flex;
-  justify-content: center; */
-  overflow: hidden;
-}
-
-.c-list {
-  border: 0.2rem solid blue;
-  display: flex;
-  flex-direction: row;
-  margin: 0 auto;
-  transition: all 0.3s ease-in;
-}
-
-/*  LOADING ANIMATION  */
-.loading {
-  /* bottom: 50px; */
-  bottom: 50%;
-  display: flex;
-  left: 50%;
-  opacity: 0;
-
-  /* position: fixed; */
-  position: absolute;
-  transform: translateX(-50%);
-  transition: opacity 0.3s ease-in;
-}
-
-.loading.show {
-  opacity: 1;
-}
-
-.ball {
-  animation: jump 0.5s ease-in infinite;
-  background-color: #777;
-  border-radius: 50%;
-  height: 10px;
-  margin: 5px;
-  width: 10px;
-}
-
-.ball:nth-of-type(2) {
-  animation-delay: 0.1s;
-}
-
-.ball:nth-of-type(3) {
-  animation-delay: 0.2s;
-}
-
-@keyframes jump {
-  0%,
-  100% {
-    transform: translateY(0);
+      /* min-width: 8rem; */
+      padding: 1rem;
+      width: 3.5rem;
+    }
   }
 
-  50% {
-    transform: translateY(-10px);
+  &__container {
+    display: flex;
+    height: 60rem;
+    margin-bottom: 5rem;
+    max-width: 65rem;
+
+    /* padding: 1rem; */
+    overflow: hidden;
+    width: calc(100% - 10rem);
+  }
+
+  &__list {
+    border: 0.2rem solid blue;
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    transition: all 0.3s ease-in;
   }
 }
