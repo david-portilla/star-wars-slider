@@ -1,7 +1,8 @@
 /**
  * Components
  */
+// Settings
+@import 'settings/module';
 
-@import 'components/card';
-@import 'components/loading';
-@import 'components/slider';
+// Components
+@import 'components/module';

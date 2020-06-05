@@ -9,15 +9,13 @@
   position: relative;
 
   &__controls {
-    // border: 0.3rem solid red;
+    border: 0.1rem solid red;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     max-width: 85rem;
     position: absolute;
     top: calc(50% - 2rem);
-
-    /* width: 60rem; */
     width: calc(100% - 1rem);
 
     &-btn {
@@ -25,29 +23,23 @@
       cursor: pointer;
       height: 3.5rem;
       overflow: hidden;
-
-      /* min-width: 8rem; */
       padding: 1rem;
       width: 3.5rem;
     }
   }
 
   &__container {
+    background-color: gray;
     display: flex;
     height: 60rem;
-    margin-bottom: 5rem;
     max-width: 65rem;
-
-    /* padding: 1rem; */
     overflow: hidden;
-    width: calc(100% - 10rem);
+    width: 100%;
   }
 
   &__list {
-    border: 0.2rem solid blue;
     display: flex;
     flex-direction: row;
-    margin: 0 auto;
-    transition: all 0.3s ease-in;
+    min-width: 100%;
   }
 }

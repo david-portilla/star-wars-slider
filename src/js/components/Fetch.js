@@ -19,17 +19,11 @@ class Fetch {
   init () {
     // console.log('init Fetch')
 
-    let slider = new Slider()  // eslint-disable-line
+    this.slider = new Slider()  // eslint-disable-line
 
     // call type element to draw
     this.fetchItem('starships')
   }
-
-
-  // generate random number btew 0 - 9
-  // getRandomNumber (max, min) {
-  //   return Math.floor(Math.random() * (max - min) + min);
-  // }
 
   // fetch Data from SWAPI
   async fetchItem (id) {
@@ -39,12 +33,6 @@ class Fetch {
       const url = `https://swapi.dev/api/${ id }/`;
       const response = await fetch(url);
       const data = await response.json();
-
-      // const firstItemToDraw = this.getRandomNumber(data.results.length, 0);
-      // console.log("firstItemToDraw : ", firstItemToDraw);
-      // add first item availabe
-      // addDataToDOM(data.results[ firstItemToDraw ])
-
 
       // add items in parallel
       Promise.all(data.results)
@@ -64,11 +52,11 @@ class Fetch {
     try {
       for (let k = 0;k < results.length;k++) {
         results[ k ].films = await this.fetchRelatedMovies(results[ k ].films)
-        this.addDataToDOM(results[ k ]);
+        this.addDataToDOM(results[ k ], k);
         results ? this.showLoading(false) : this.showLoading(true)
       }
-      // when all data is ready initialize Slider
-      // let slider = new Slider()  // eslint-disable-line
+      // when finish adding data
+      this.slider.setMaxLimit()
     } catch (error) {
       console.log("Awaiting Movies Failed: ", error.message);
     }
@@ -92,10 +80,11 @@ class Fetch {
   }
 
   // drawing DATA into DOM
-  addDataToDOM (data) {
+  addDataToDOM (data, id) {
     // console.log('data to add:', data)
-    const cardElement = document.createElement("div");
-    cardElement.classList.add("c-card");
+    const cardElement = document.createElement("div")
+    cardElement.id = `card-${ id }`
+    cardElement.classList.add("c-card")
     cardElement.innerHTML = `
       <div class="c-card__info">
         ${this.createHTML(data) }

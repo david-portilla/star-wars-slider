@@ -1,9 +1,19 @@
-.c-card {
-  background-color: lavender;
-  border: 0.1rem solid red;
-  overflow: hidden;
+/*
+* Card component
+*/
 
-  /* align-items: center;
-  display: flex;
-  justify-content: center; */
+.c-card {
+  background-color: aliceblue;
+  margin: 0.5rem;
+  min-width: calc(100% - 1rem);
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+#card-0 {
+  background-color: pink;
+}
+
+#card-9 {
+  background-color: aquamarine;
 }

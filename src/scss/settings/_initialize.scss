@@ -1,0 +1,46 @@
+* {
+  box-sizing: border-box;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  padding: 0;
+
+  &:focus {
+    outline: rgb(59, 153, 252) auto 0.3rem;
+    outline: -webkit-focus-ring-color auto 0.5rem;
+  }
+}
+
+html {
+  font-size: 62.5%;
+  // A font-size of 62.5% will create a base font-size of 10px in most cases
+  height: 100%;
+}
+
+body {
+  color: gray;
+  font: 400 1.6rem/1.2, sans-serif;
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+a {
+  color: gray;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: black;
+    text-decoration: underline;
+  }
+}
+
+img {
+  display: block;
+}
+
+p {
+  font-size: 2rem;
+}
