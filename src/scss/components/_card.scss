@@ -8,6 +8,11 @@
   min-width: calc(100% - 1rem);
   padding: 3rem 1rem;
   text-align: center;
+
+  &__wrapper {
+    border: 0.1rem solid aquamarine;
+    height: 100%;
+  }
 }
 
 #card-0 {

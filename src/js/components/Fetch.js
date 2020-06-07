@@ -23,6 +23,7 @@ class Fetch {
 
     // call type element to draw
     this.fetchItem('starships')
+    // this.fetchItem("vehicles");
   }
 
   // fetch Data from SWAPI
@@ -57,6 +58,7 @@ class Fetch {
       }
       // when finish adding data
       this.slider.setMaxLimit()
+      console.log('slider.setMaxLimit()')
     } catch (error) {
       console.log("Awaiting Movies Failed: ", error.message);
     }
@@ -86,7 +88,7 @@ class Fetch {
     cardElement.id = `card-${ id }`
     cardElement.classList.add("c-card")
     cardElement.innerHTML = `
-      <div class="c-card__info">
+      <div class="c-card__wrapper">
         ${this.createHTML(data) }
       </div>
       `;
@@ -97,11 +99,15 @@ class Fetch {
   createHTML (data) {
     let str = "";
     for (const property in data) {
-      // console.log(`${ property }: ${ data[ property ].length }`);
+      console.log(`${ property }: ${ data[ property ].length }`);
       if (
         data[ property ] !== "" &&
         data[ property ] !== undefined &&
-        data[ property ].length > 0
+        data[ property ].length > 0 &&
+        property !== "model" &&
+        property !== "edited" &&
+        property !== "created" &&
+        property !== "url"
       ) {
         str += `<p class="c-card__info-text"> <i>${ property }: </i> ${ data[ property ] }</p>`;
       }
