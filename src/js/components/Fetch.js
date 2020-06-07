@@ -38,7 +38,7 @@ class Fetch {
       // add items in parallel
       Promise.all(data.results)
         .then((values) => {
-          this.awaitMovies(values)
+          this.awaitMovies(values, id)
         })
         .catch(function () {
           console.log("Promise all failure!");
@@ -49,10 +49,11 @@ class Fetch {
   }
 
   // await each related movie
-  async awaitMovies (results) {
+  async awaitMovies (results, type) {
     try {
       for (let k = 0;k < results.length;k++) {
         results[ k ].films = await this.fetchRelatedMovies(results[ k ].films)
+        results[ k ].img = this.pullImages(results[ k ].name, type)
         this.addDataToDOM(results[ k ], k);
         results ? this.showLoading(false) : this.showLoading(true)
       }
@@ -61,6 +62,16 @@ class Fetch {
       console.log('slider.setMaxLimit()')
     } catch (error) {
       console.log("Awaiting Movies Failed: ", error.message);
+    }
+  }
+
+  // add image from folder
+  pullImages (name, type) {
+    if (type === 'vehicles') {
+      return `/vehicles/${ name.replace(' ', '-') }`
+    }
+    if (type === 'starships') {
+      return `/starships/${ name.replace(' ', '-') }`
     }
   }
 
@@ -99,7 +110,7 @@ class Fetch {
   createHTML (data) {
     let str = "";
     for (const property in data) {
-      console.log(`${ property }: ${ data[ property ].length }`);
+      // console.log(`${ property }: ${ data[ property ].length }`);
       if (
         data[ property ] !== "" &&
         data[ property ] !== undefined &&
@@ -110,6 +121,9 @@ class Fetch {
         property !== "url"
       ) {
         str += `<p class="c-card__info-text"> <i>${ property }: </i> ${ data[ property ] }</p>`;
+      }
+      if (property === "img") {
+        str += `<img src="/src/img/${ data[ property ] }.jpg" alt="${ data[ 'name' ] }">`
       }
     }
     return str;
