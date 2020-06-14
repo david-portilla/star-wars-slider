@@ -12,14 +12,14 @@
 }
 
 html {
-  font-size: 62.5%;
   // A font-size of 62.5% will create a base font-size of 10px in most cases
+  font-size: 62.5%;
   height: 100%;
 }
 
 body {
-  color: gray;
-  font: 400 1.6rem/1.2, sans-serif;
+  color: black;
+  font: 400 1.6rem/1.2 $dosis, 'Arial', sans-serif;
   height: 100%;
   scroll-behavior: smooth;
 }
