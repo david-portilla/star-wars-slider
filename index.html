@@ -11,8 +11,24 @@
 </head>
 
 <body>
-  <main>
-    <h2>slider</h2>
+  <main id="main-navigation">
+
+    <header class="c-brand">
+      <div class="c-brand__logo">star wars logo</div>
+      <nav class="c-brand__controls" aria-label="controls">
+        <select name="control" id="control">
+          <option value="vehicles">Vehicles</option>
+          <option value="vehicles">starships</option>
+        </select>
+      </nav>
+      <!-- c-brand__controls -->
+      <div class="c-brand__hire">
+        <a href="/">hire developer</a>
+      </div>
+      <!-- c-brand__hire -->
+    </header>
+    <!-- c-brand -->
+
     <div class="c-slider">
 
       <div class="c-slider__container" id="sliderContainer">
@@ -23,27 +39,41 @@
 
           <div id="default" class="c-card">
             <div class="c-card__wrapper">
-              <p class="c-card__info-text"> <i>name: </i> X-wing</p>
-              <p class="c-card__info-text"> <i>manufacturer: </i> Incom Corporation</p>
-              <p class="c-card__info-text"> <i>cost_in_credits: </i> 149999</p>
-              <p class="c-card__info-text"> <i>length: </i> 12.5</p>
-              <p class="c-card__info-text"> <i>max_atmosphering_speed: </i> 1050</p>
-              <p class="c-card__info-text"> <i>crew: </i> 1</p>
-              <p class="c-card__info-text"> <i>passengers: </i> 0</p>
-              <p class="c-card__info-text"> <i>cargo_capacity: </i> 110</p>
-              <p class="c-card__info-text"> <i>consumables: </i> 1 week</p>
-              <p class="c-card__info-text"> <i>hyperdrive_rating: </i> 1.0</p>
-              <p class="c-card__info-text"> <i>MGLT: </i> 100</p>
-              <p class="c-card__info-text"> <i>starship_class: </i> Starfighter</p>
-              <p class="c-card__info-text"> <i>pilots: </i>
-                http://swapi.dev/api/people/1/,http://swapi.dev/api/people/9/,http://swapi.dev/api/people/18/,http://swapi.dev/api/people/19/
-              </p>
-              <p class="c-card__info-text"> <i>films: </i> A New Hope,The Empire Strikes Back,Return of the Jedi</p>
-              <p class="c-card__info-text"> <i>img: </i> /starships/X-wing</p><img src="/src/img//starships/X-wing.jpg"
-                alt="X-wing">
+              <div class="c-card__product">
+                <div class="c-card__product-background"></div>
+                <img src="/src/img//starships/X-wing.jpg" alt="X-wing">
+              </div>
+              <!-- c-card__product -->
+              <div class="c-card__info">
+                <div class="c-card__info-name">SENTINEL CLASS LANDING CRAFT</div>
+                <ul class="c-card__info-cat">
+                  <li>Kuat Drive Yards</li>
+                  <li>Kuat Drive Yards</li>
+                </ul>
+                <div class="c-card__stats">
+                  <div class="c-card__specs">
+                    passengers 40 persons
+                    cargo capacity 5000 pounds
+                    crew 5 persons
+                  </div>
+                  <div class="c-card__speed">
+                    max. speed 60 kmh
+                  </div>
+                </div>
+                <!-- c-card__stats -->
+                <div class="c-card__cart">
+                  <div class="c-card__price">
+                    $ 6.831
+                  </div>
+                  <button class="c-card__cta">add to cart</button>
+                </div>
+                <!-- c-card__cart -->
+              </div>
+              <!-- c-card__info -->
             </div>
+            <!-- c-card__wrapper -->
           </div>
-          <!-- default card -->
+          <!-- c-card -->
 
 
 
@@ -56,13 +86,23 @@
         <button id="js-prev" class="c-slider__controls-btn">Prev</button>
         <button id="js-next" class="c-slider__controls-btn">Next</button>
       </div>
+      <!-- c-slider__controls -->
       <div id="loading" class="loading">
         <div class="ball"></div>
         <div class="ball"></div>
         <div class="ball"></div>
       </div>
+      <!-- loading -->
 
     </div>
+    <!-- c-slider -->
+
+    <div class="c-background">
+      <div class="c-background__img"></div>
+      <div class="c-background__pattern"></div>
+    </div>
+    <!-- c-background -->
+
   </main>
   <script type="module" src="dist/index.js"></script>
 </body>
