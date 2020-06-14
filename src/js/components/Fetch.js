@@ -30,9 +30,17 @@ class Fetch {
   async fetchItem (id) {
     try {
       data ? this.showLoading(false) : this.showLoading(true)
-      /*eslint no-constant-condition: ["error", { "checkLoops": false }]*/
+      const params = {
+        method: 'GET',
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+        },
+        mode: 'cors',
+        cache: 'default'
+      };
       const url = `https://swapi.dev/api/${ id }/`;
-      const response = await fetch(url);
+      const response = await fetch(url, params);
+      // console.log(response);
       const data = await response.json();
 
       // add items in parallel
