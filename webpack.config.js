@@ -48,7 +48,7 @@ module.exports = {
           // Update index.css on changes
           { loader: MiniCssExtractPlugin.loader },
           // Translates CSS into CommonJS
-          { loader: "css-loader" },
+          { loader: "css-loader", options: { url: false, sourceMap: true } },
           // Autoprefix Sass files
           {
             loader: "postcss-loader",
