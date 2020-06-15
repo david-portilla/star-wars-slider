@@ -1,0 +1,79 @@
+/*
+* Background component
+*/
+
+.c-background {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  width: 100%;
+  z-index: -1;
+
+  &__img {
+    background-image: url('../src/img/galaxy.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    position: relative;
+    width: 100%;
+
+    &::after {
+      background-color: rgba(black, 0.8);
+      content: '';
+      display: block;
+      height: 100%;
+      left: 0;
+      position: absolute;
+      right: 0;
+    }
+  }
+
+  &__pattern {
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+    &-bottom {
+      background-image: url('../src/img/pattern.png');
+      background-repeat: no-repeat;
+      background-size: 50%;
+      border: 0.1rem solid $yellow;
+      bottom: 0;
+      height: auto;
+      left: 0;
+      position: absolute;
+      width: auto;
+      z-index: 0;
+
+      @media only screen and ($md) {
+        background-size: cover;
+        bottom: -12rem;
+        height: 60rem;
+        left: -10rem;
+        width: 60rem;
+      }
+    }
+
+    &-right {
+      background-image: url('../src/img/pattern.png');
+      background-repeat: no-repeat;
+      background-size: 50%;
+      height: 60rem;
+      position: absolute;
+      right: -15rem;
+      top: -32rem;
+      width: 60rem;
+      z-index: 0;
+
+      @media only screen and ($md) {
+        background-size: cover;
+        height: 60rem;
+        width: 60rem;
+      }
+    }
+  }
+}

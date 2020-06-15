@@ -1,0 +1,58 @@
+/*
+* Brand component
+*/
+
+.c-brand {
+  align-items: center;
+  border: 0.1rem solid red;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @media only screen and ($sm) {
+    border: 0.1rem solid $yellow;
+    flex-direction: row;
+    height: 9.5rem;
+  }
+
+  @media only screen and ($md) {
+    border: 0.1rem solid $blue;
+  }
+
+  @media only screen and ($lg) {
+    border: 0.1rem solid lime;
+  }
+
+  &__logo {
+    background-image: url('../src/img/logo.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    max-width: 12rem;
+    min-height: 9.5rem;
+    width: 100%;
+  }
+
+  &__hire {
+    border: 0.1rem solid $yellow;
+    border-radius: 2.4rem;
+    font-size: 1.3rem;
+    font-weight: 400;
+    line-height: 1.2;
+    padding: 1.2rem 2rem;
+    text-transform: uppercase;
+    transition: all ease-in 0.25s;
+
+    &:hover,
+    &:focus {
+      background-color: rgba($blue, 0.1);
+      border: 0.1rem solid $blue;
+      transition: all ease-out 0.25s;
+
+      a {
+        color: white;
+        text-decoration: none;
+      }
+    }
+  }
+}
