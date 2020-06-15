@@ -1,3 +1,12 @@
+// Define colors
+$yellow: #fcee21;
+$blue: #00dfd6;
+
+// Define breakpoints
+$sm: 'min-width: 30em'; // 480px
+$md: 'min-width: 62em'; // 992px
+$lg: 'min-width: 80em'; // 1280px
+
 * {
   box-sizing: border-box;
   -moz-osx-font-smoothing: grayscale;
@@ -18,21 +27,22 @@ html {
 }
 
 body {
-  color: black;
+  background-color: black;
+  color: white;
   font: 400 1.6rem/1.2 $dosis, 'Arial', sans-serif;
   height: 100%;
   scroll-behavior: smooth;
 }
 
 a {
-  color: gray;
+  color: white;
   cursor: pointer;
   display: inline-block;
   text-decoration: none;
 
   &:hover,
   &:focus {
-    color: black;
+    color: gray;
     text-decoration: underline;
   }
 }
@@ -42,5 +52,19 @@ img {
 }
 
 p {
+  color: white;
   font-size: 2rem;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem 2rem;
+  position: relative;
+  width: 100%;
+
+  @media only screen and ($md) {
+    padding: 3rem 5rem;
+  }
 }
