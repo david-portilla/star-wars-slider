@@ -4,35 +4,93 @@
 
 .c-slider {
   align-items: center;
+  // border: 0.1rem solid $yellow;
   display: flex;
   flex-direction: column;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
   position: relative;
+  width: 100%;
+
+  @media only screen and ($md) {
+    margin-top: 5.5rem;
+    max-height: 48rem;
+    max-width: 82rem;
+    padding: 0 3rem;
+  }
 
   &__controls {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    max-width: 85rem;
+    left: 0;
     position: absolute;
     top: calc(50% - 2rem);
-    width: calc(100% - 1rem);
+    width: 100%;
+    // z-index: 10;
+  }
 
-    &-btn {
-      border: 0.1rem solid red;
-      border-radius: 100%;
-      cursor: pointer;
-      height: 3.5rem;
-      overflow: hidden;
-      padding: 1rem;
-      width: 3.5rem;
+  &__btn {
+    background-color: $blue;
+    background-image:
+      linear-gradient(
+        90deg,
+        rgba(#009bae, 1) 0%,
+        rgba(#00dfd6, 1) 100%
+      );
+    border: none;
+    border-radius: 100%;
+    cursor: pointer;
+    height: 6rem;
+    overflow: hidden;
+    padding: 1rem;
+    pointer-events: all;
+    position: relative;
+    transition: all ease-in 0.2s;
+    width: 6rem;
+    z-index: 10;
+
+    &:hover,
+    &:focus {
+      background-image:
+        linear-gradient(
+          90deg,
+          rgba(#009bae, 1) 0%,
+          rgba(#00dfd6, 1) 80%
+        );
+      transition: all linear 0.2s;
+
+      .c-slider__btn-arrow {
+        background-position: 2rem center;
+        background-size: 3.1rem;
+        transition: all linear 0.2s;
+      }
+    }
+
+    &--prev {
+      transform: rotateZ(180deg);
+    }
+
+    &-arrow {
+      background-image: url('../src/img/arrow.svg');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 3rem;
+      height: 100%;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transition: all linear 0.2s;
+      width: 100%;
     }
   }
 
   &__container {
-    // background-color: gray;
     display: flex;
     height: 60rem;
-    max-width: 65rem;
+    margin: 0 auto;
     overflow: hidden;
     width: 100%;
   }

@@ -28,7 +28,9 @@ html {
 
 body {
   background-color: black;
+  // width: 100%;
   color: white;
+  display: flex;
   font: 400 1.6rem/1.2 $dosis, 'Arial', sans-serif;
   height: 100%;
   scroll-behavior: smooth;
@@ -57,14 +59,12 @@ p {
 }
 
 main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  border: 0.3rem solid $yellow;
   padding: 1rem 2rem;
-  position: relative;
-  width: 100%;
+  width: calc(100% - 0.6rem);
 
   @media only screen and ($md) {
+    height: 100%;
     padding: 3rem 5rem;
   }
 }

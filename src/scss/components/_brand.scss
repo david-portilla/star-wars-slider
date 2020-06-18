@@ -4,29 +4,29 @@
 
 .c-brand {
   align-items: center;
-  border: 0.1rem solid red;
+  // border: 0.1rem solid red;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
   @media only screen and ($sm) {
-    border: 0.1rem solid $yellow;
+    // border: 0.1rem solid $yellow;
     flex-direction: row;
     height: 9.5rem;
   }
 
   @media only screen and ($md) {
-    border: 0.1rem solid $blue;
+    // border: 0.1rem solid $blue;
   }
 
   @media only screen and ($lg) {
-    border: 0.1rem solid lime;
+    // border: 0.1rem solid lime;
   }
 
   &__logo {
     background-image: url('../src/img/logo.svg');
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     height: 100%;
     max-width: 12rem;
     min-height: 9.5rem;

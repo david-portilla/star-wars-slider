@@ -3,6 +3,7 @@
 */
 
 .c-background {
+  bottom: 0;
   height: 100%;
   left: 0;
   position: absolute;
@@ -41,7 +42,6 @@
       background-image: url('../src/img/pattern.png');
       background-repeat: no-repeat;
       background-size: 50%;
-      border: 0.1rem solid $yellow;
       bottom: 0;
       height: auto;
       left: 0;
