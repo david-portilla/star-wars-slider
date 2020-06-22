@@ -51,23 +51,6 @@
     width: 6rem;
     z-index: 10;
 
-    &:hover,
-    &:focus {
-      background-image:
-        linear-gradient(
-          90deg,
-          rgba(#009bae, 1) 0%,
-          rgba(#00dfd6, 1) 80%
-        );
-      transition: all linear 0.2s;
-
-      .c-slider__btn-arrow {
-        background-position: 2rem center;
-        background-size: 3.1rem;
-        transition: all linear 0.2s;
-      }
-    }
-
     &--prev {
       transform: rotateZ(180deg);
     }
@@ -84,6 +67,23 @@
       top: 0;
       transition: all linear 0.2s;
       width: 100%;
+    }
+
+    &:hover,
+    &:focus {
+      background-image:
+        linear-gradient(
+          90deg,
+          rgba(#009bae, 1) 0%,
+          rgba(#00dfd6, 1) 80%
+        );
+      transition: all linear 0.2s;
+
+      .c-slider__btn-arrow {
+        background-position: 2rem center;
+        background-size: 3.1rem;
+        transition: all linear 0.2s;
+      }
     }
   }
 

@@ -53,7 +53,7 @@
     width: 100%;
 
     img {
-      border: 0.1rem solid red;
+      // border: 0.1rem solid red;
       max-height: 35rem;
       max-width: 41.5rem;
       z-index: 2;
@@ -79,7 +79,7 @@
     }
 
     &-wrapper {
-      border: 0.1rem solid aquamarine;
+      // border: 0.1rem solid aquamarine;
       margin-left: 16rem;
     }
   }
@@ -103,7 +103,7 @@
     li {
       background-color: rgba($blue, $alpha: 0.15);
       border-radius: 2rem;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       font-weight: 400;
       line-height: 1;
       margin-bottom: 0.5rem;
@@ -112,6 +112,21 @@
 
       &:last-of-type {
         margin-right: 0;
+      }
+
+      &:hover,
+      &:focus {
+        background-color: rgba($blue, $alpha: 0.25);
+        cursor: pointer;
+      }
+
+      > a {
+        color: white;
+
+        &:hover,
+        &:focus {
+          color: white;
+        }
       }
     }
   }
@@ -128,7 +143,26 @@
   }
 
   &__col {
+    padding-right: 2rem;
     width: 50%;
+
+    &:first-of-type {
+      padding-right: 4rem;
+      position: relative;
+      width: 70%;
+
+      &::after {
+        background-color: rgba($blue, 0.3);
+        // background-image: linear-gradient(to bottom, $blue, $yellow);
+        content: '';
+        display: block;
+        height: calc(100% - 3rem);
+        position: absolute;
+        right: 0;
+        top: 1.5rem;
+        width: 0.2rem;
+      }
+    }
   }
 
   &__item {
@@ -143,11 +177,11 @@
     > span {
       color: $blue;
       display: inline-block;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       font-weight: 400;
       line-height: 1.1;
       text-transform: capitalize;
-      width: 50%;
+      width: 45%;
     }
 
     &-number {
@@ -156,11 +190,45 @@
       flex-direction: row;
       font-size: 1.6rem;
       line-height: 1.1;
-      width: 50%;
+      width: 55%;
 
       span {
         margin-right: 0.5rem;
       }
+    }
+  }
+
+  &__velocity {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &-number {
+      border-bottom: 0.2rem solid;
+      border-image-slice: 1;
+      border-image-source: linear-gradient(to right, $blue, $yellow);
+      border-width: 0.2rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.8rem;
+
+      > span {
+        font-family: $russo;
+        font-size: 2rem;
+        line-height: 1.5;
+      }
+
+      > p {
+        font-size: 1.3rem;
+        line-height: 1;
+      }
+    }
+
+    > p {
+      color: $blue;
+      font-family: $dosis;
+      font-size: 1.3rem;
+      font-weight: 300;
     }
   }
 
@@ -192,6 +260,7 @@
       border: none;
       border-radius: 2rem;
       color: black;
+      cursor: pointer;
       display: inline-flex;
       font-family: $dosis;
       font-size: 1.3rem;
@@ -205,9 +274,9 @@
       &:focus {
         background-image:
           linear-gradient(
-            90deg,
+            180deg,
             rgba(#fcee21, 0.8) 0%,
-            rgba(#fbb03b, 0.8) 70%
+            rgba(#fbb03b, 0.8) 100%
           );
         transition: all ease-out 0.2s;
       }
