@@ -4,10 +4,10 @@
 
 .c-background {
   bottom: 0;
-  height: 100%;
   left: 0;
   position: absolute;
   right: 0;
+  top: 0;
   width: 100%;
   z-index: -1;
 
@@ -41,16 +41,15 @@
     &-bottom {
       background-image: url('../src/img/pattern.png');
       background-repeat: no-repeat;
-      background-size: 50%;
-      bottom: 0;
-      height: auto;
-      left: 0;
+      background-size: cover;
+      bottom: -6rem;
+      height: 30rem;
+      left: -5rem;
       position: absolute;
-      width: auto;
+      width: 30rem;
       z-index: 0;
 
       @media only screen and ($md) {
-        background-size: cover;
         bottom: -12rem;
         height: 60rem;
         left: -10rem;
@@ -61,17 +60,18 @@
     &-right {
       background-image: url('../src/img/pattern.png');
       background-repeat: no-repeat;
-      background-size: 50%;
-      height: 60rem;
+      background-size: cover;
+      height: 30rem;
       position: absolute;
-      right: -15rem;
-      top: -32rem;
-      width: 60rem;
+      right: -6rem;
+      top: -16rem;
+      width: 30rem;
       z-index: 0;
 
       @media only screen and ($md) {
-        background-size: cover;
         height: 60rem;
+        right: -15rem;
+        top: -32rem;
         width: 60rem;
       }
     }

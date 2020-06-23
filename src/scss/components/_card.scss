@@ -3,11 +3,23 @@
 */
 
 .c-card {
-  // border: 0.1rem solid lime;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   margin: 0 auto;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
   position: relative;
   text-align: center;
   width: 100%;
+
+  @media only screen and ($md) {
+    display: block;
+    // margin-bottom: 4rem;
+    // margin-top: 4rem;
+    margin: 0;
+  }
 
   &__overlay {
     background-image:
@@ -19,10 +31,13 @@
     border-radius: 2rem;
     height: 100%;
     left: 0;
-    max-width: 41.5rem;
     position: absolute;
     top: 0;
     width: 100%;
+
+    @media only screen and ($md) {
+      max-width: 41.5rem;
+    }
 
     &::after {
       background-image: url('/src/img/logo-overlay.png');
@@ -45,30 +60,45 @@
     border-radius: 2rem;
     display: flex;
     flex-direction: column;
-    height: 100%;
     justify-content: center;
-    margin-left: 3rem;
-    max-width: 35rem;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    max-width: 60rem;
+    min-height: 30rem;
     overflow: hidden;
+    position: relative;
     width: 100%;
 
-    img {
-      // border: 0.1rem solid red;
-      max-height: 35rem;
+    @media only screen and ($md) {
+      height: 100%;
+      margin: 0;
       max-width: 41.5rem;
+      min-height: 48rem;
+    }
+
+    img {
+      max-width: 35rem;
+      width: 100%;
       z-index: 2;
     }
   }
 
   &__info {
     background-color: #242424;
-    // border: 0.1rem solid aquamarine;
+    background-image:
+      linear-gradient(
+        90deg,
+        rgba(#242424, 1) 0%,
+        rgba(#030303, 1) 100%
+      );
     border-radius: 2rem;
-    height: 100%;
+    margin: 0 auto;
+    max-width: 60rem;
     padding: 2rem;
     width: 100%;
 
     @media only screen and ($md) {
+      height: 100%;
       max-height: 41.5rem;
       max-width: 56.5rem;
       padding: 3rem;
@@ -79,26 +109,42 @@
     }
 
     &-wrapper {
-      // border: 0.1rem solid aquamarine;
-      margin-left: 16rem;
+      width: 100%;
+
+      @media only screen and ($md) {
+        margin-left: 18rem;
+        width: auto;
+      }
     }
   }
 
   &__heading {
     font-family: $russo;
-    font-size: 3.5rem;
-    line-height: 1.15;
+    font-size: 3rem;
+    line-height: 1.2;
     margin-bottom: 3rem;
     text-align: left;
+    text-align: center;
     text-transform: uppercase;
+
+    @media only screen and ($md) {
+      font-size: 3.5rem;
+      line-height: 1.15;
+      text-align: left;
+    }
   }
 
   &__categories {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
     list-style: none;
     margin-bottom: 3rem;
+
+    @media only screen and ($md) {
+      justify-content: flex-start;
+    }
 
     li {
       background-color: rgba($blue, $alpha: 0.15);
@@ -132,35 +178,45 @@
   }
 
   &__stats {
+    align-items: center;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     margin-bottom: 2rem;
 
-    @media only screen and ($md) {
+    @media only screen and ($sm) {
       flex-direction: row;
-      margin-bottom: 3rem;
     }
   }
 
   &__col {
     padding-right: 2rem;
-    width: 50%;
+    width: 100%;
+
+    @media only screen and ($sm) {
+      width: 50%;
+    }
 
     &:first-of-type {
-      padding-right: 4rem;
       position: relative;
-      width: 70%;
+      width: 100%;
+
+      @media only screen and ($sm) {
+        padding-right: 4rem;
+        width: 70%;
+      }
 
       &::after {
-        background-color: rgba($blue, 0.3);
-        // background-image: linear-gradient(to bottom, $blue, $yellow);
-        content: '';
-        display: block;
-        height: calc(100% - 3rem);
-        position: absolute;
-        right: 0;
-        top: 1.5rem;
-        width: 0.2rem;
+        @media only screen and ($sm) {
+          background-color: rgba($blue, 0.3);
+          content: '';
+          display: block;
+          height: calc(100% - 3rem);
+          position: absolute;
+          right: 0;
+          top: 1.5rem;
+          width: 0.2rem;
+        }
       }
     }
   }
@@ -170,9 +226,14 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     margin-bottom: 0.5rem;
-    text-align: left;
+    text-align: center;
+
+    @media only screen and ($sm) {
+      justify-content: space-between;
+      text-align: left;
+    }
 
     > span {
       color: $blue;
@@ -193,6 +254,7 @@
       width: 55%;
 
       span {
+        font-size: 2rem;
         margin-right: 0.5rem;
       }
     }
@@ -201,25 +263,43 @@
   &__velocity {
     align-items: center;
     display: flex;
-    flex-direction: column;
+    flex-direction: row-reverse;
     justify-content: center;
 
+    @media only screen and ($sm) {
+      flex-direction: column;
+    }
+
     &-number {
-      border-bottom: 0.2rem solid;
-      border-image-slice: 1;
-      border-image-source: linear-gradient(to right, $blue, $yellow);
-      border-width: 0.2rem;
-      margin-bottom: 1rem;
-      padding-bottom: 0.8rem;
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      width: 55%;
+
+      @media only screen and ($sm) {
+        border-bottom: 0.2rem solid;
+        border-image-slice: 1;
+        border-image-source: linear-gradient(to right, $blue, $yellow);
+        border-width: 0.2rem;
+        flex-direction: column;
+        margin-bottom: 1rem;
+        padding-bottom: 0.8rem;
+        width: auto;
+      }
 
       > span {
-        font-family: $russo;
+        font-family: $dosis;
         font-size: 2rem;
         line-height: 1.5;
+        margin-right: 0.5rem;
+
+        @media only screen and ($sm) {
+          font-family: $russo;
+        }
       }
 
       > p {
-        font-size: 1.3rem;
+        font-size: 2rem;
         line-height: 1;
       }
     }
@@ -229,24 +309,40 @@
       font-family: $dosis;
       font-size: 1.3rem;
       font-weight: 300;
+      width: 45%;
+
+      @media only screen and ($sm) {
+        width: auto;
+      }
     }
   }
 
   &__cart {
     align-items: center;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
+    justify-content: center;
+
+    @media only screen and ($sm) {
+      flex-direction: row;
+      margin-bottom: 3rem;
+    }
 
     @media only screen and ($md) {
-      margin-bottom: 3rem;
+      justify-content: flex-start;
     }
 
     &-price {
       font-size: 4rem;
       font-weight: 300;
       line-height: 1.2;
-      margin-right: 3rem;
+      margin-bottom: 2rem;
+
+      @media only screen and ($sm) {
+        margin-bottom: 0;
+        margin-right: 3rem;
+      }
     }
 
     &-cta {

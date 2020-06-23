@@ -23,17 +23,23 @@ $lg: 'min-width: 80em'; // 1280px
 html {
   // A font-size of 62.5% will create a base font-size of 10px in most cases
   font-size: 62.5%;
-  height: 100%;
 }
 
 body {
   background-color: black;
-  // width: 100%;
+  border: 0.3rem solid $yellow;
   color: white;
-  display: flex;
   font: 400 1.6rem/1.2 $dosis, 'Arial', sans-serif;
   height: 100%;
+  min-height: 100vh;
+  padding: 1rem 2rem;
+  position: relative;
   scroll-behavior: smooth;
+  width: 100%;
+
+  @media only screen and ($md) {
+    padding: 3rem 5rem;
+  }
 }
 
 a {
@@ -56,15 +62,4 @@ img {
 p {
   color: white;
   font-size: 2rem;
-}
-
-main {
-  border: 0.3rem solid $yellow;
-  padding: 1rem 2rem;
-  width: calc(100% - 0.6rem);
-
-  @media only screen and ($md) {
-    height: 100%;
-    padding: 3rem 5rem;
-  }
 }

@@ -9,26 +9,38 @@
   flex-direction: column;
   height: 100%;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0;
   position: relative;
   width: 100%;
 
+  @media only screen and ($sm) {
+    padding: 0 2rem;
+  }
+
   @media only screen and ($md) {
-    margin-top: 5.5rem;
+    margin: 0 auto;
     max-height: 48rem;
     max-width: 82rem;
     padding: 0 3rem;
+    transform: translateY(calc(100% - 35rem));
   }
 
   &__controls {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    left: 0;
+    left: -1.5rem;
     position: absolute;
     top: calc(50% - 2rem);
-    width: 100%;
-    // z-index: 10;
+    width: calc(100% + 3rem);
+
+    @media only screen and ($sm) {
+      left: 0;
+      right: 0;
+      // left: -3rem;
+      // right: -6rem;
+      width: auto;
+    }
   }
 
   &__btn {
@@ -42,14 +54,19 @@
     border: none;
     border-radius: 100%;
     cursor: pointer;
-    height: 6rem;
+    height: 4rem;
     overflow: hidden;
     padding: 1rem;
     pointer-events: all;
     position: relative;
     transition: all ease-in 0.2s;
-    width: 6rem;
+    width: 4rem;
     z-index: 10;
+
+    @media only screen and ($sm) {
+      height: 6rem;
+      width: 6rem;
+    }
 
     &--prev {
       transform: rotateZ(180deg);
@@ -59,7 +76,7 @@
       background-image: url('../src/img/arrow.svg');
       background-position: center;
       background-repeat: no-repeat;
-      background-size: 3rem;
+      background-size: 60%;
       height: 100%;
       left: 0;
       position: absolute;
@@ -67,6 +84,10 @@
       top: 0;
       transition: all linear 0.2s;
       width: 100%;
+
+      @media only screen and ($sm) {
+        background-size: 3rem;
+      }
     }
 
     &:hover,
@@ -80,25 +101,38 @@
       transition: all linear 0.2s;
 
       .c-slider__btn-arrow {
-        background-position: 2rem center;
-        background-size: 3.1rem;
+        background-position: 0.5rem center;
+        background-size: 80%;
         transition: all linear 0.2s;
+
+        @media only screen and ($sm) {
+          background-position: 2rem center;
+          background-size: 3.1rem;
+        }
       }
     }
   }
 
   &__container {
     display: flex;
-    height: 60rem;
+    height: 100%;
     margin: 0 auto;
     overflow: hidden;
     width: 100%;
+
+    @media only screen and ($md) {
+      max-height: 60rem;
+    }
   }
 
   &__list {
     display: flex;
     flex-direction: row;
-    min-width: 100%;
     transition: 0.3s ease-in all;
+    width: 100%;
+
+    @media only screen and ($md) {
+      display: block;
+    }
   }
 }
