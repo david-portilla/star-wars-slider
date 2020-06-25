@@ -79,6 +79,7 @@
       background-size: 60%;
       height: 100%;
       left: 0;
+      pointer-events: none;
       position: absolute;
       right: 0;
       top: 0;
@@ -132,7 +133,8 @@
     width: 100%;
 
     @media only screen and ($md) {
-      display: block;
+      flex-direction: column;
+      flex-wrap: wrap;
     }
   }
 }
