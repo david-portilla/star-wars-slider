@@ -33,10 +33,8 @@ class Fetch {
       const params = {
         method: 'GET',
         headers: {
-          'Access-Control-Allow-Origin': '*',
-        },
-        mode: 'cors',
-        cache: 'default'
+          'Content-Type': 'application/json'
+        }
       };
       const url = `https://swapi.dev/api/${ id }/`;
       const response = await fetch(url, params);
@@ -107,35 +105,101 @@ class Fetch {
     cardElement.id = `card-${ id }`
     cardElement.classList.add("c-card")
     cardElement.innerHTML = `
-      <div class="c-card__wrapper">
-        ${this.createHTML(data) }
+    <div class="c-card__image">
+      <div class="c-card__overlay"></div>
+      <img src="./src/img${data.img }.png" alt="This is an starship">
+    </div>
+
+    <div class="c-card__info">
+      <div class="c-card__info-wrapper">
+        <h1 class="c-card__heading">${data.name }</h1>
+        <ul class="c-card__categories">
+          ${this.splitCategories(data.manufacturer) }
+        </ul>
+        <div class="c-card__stats">
+          <div class="c-card__col">
+            <div class="c-card__item">
+              <span>passengers</span>
+              <div class="c-card__item-number">
+                <span>${data.passengers }</span>
+                <p>persons</p>
+              </div>
+            </div>
+            <div class="c-card__item">
+              <span>cargo cap.</span>
+              <div class="c-card__item-number">
+                <span>${data.cargo_capacity / 1000 }</span>
+                <p>m³</p>
+              </div>
+            </div>
+            <div class="c-card__item">
+              <span>The crew</span>
+              <div class="c-card__item-number">
+                <span>${data.crew }</span>
+                <p>persons</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="c-card__col">
+            <div class="c-card__velocity">
+              <div class="c-card__velocity-number">
+                <span>${data.max_atmosphering_speed.replace('km', '') }</span>
+                <p>km/h</p>
+              </div>
+              <p>Max speed</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="c-card__cart">
+          <div class="c-card__cart-price">
+            $${parseInt((data.cost_in_credits / 1000)).toLocaleString() }
+          </div>
+          <button class="c-card__cart-cta">
+            add to cart
+          </button>
+        </div>
+
       </div>
+    </div>
       `;
     this.container.appendChild(cardElement);
   }
 
-  // remove empty or undefined keys and add inner HTML
-  createHTML (data) {
-    let str = "";
-    for (const property in data) {
-      // console.log(`${ property }: ${ data[ property ].length }`);
-      if (
-        data[ property ] !== "" &&
-        data[ property ] !== undefined &&
-        data[ property ].length > 0 &&
-        property !== "model" &&
-        property !== "edited" &&
-        property !== "created" &&
-        property !== "url"
-      ) {
-        str += `<p class="c-card__info-text"> <i>${ property }: </i> ${ data[ property ] }</p>`;
-      }
-      if (property === "img") {
-        str += `<img src="/src/img/${ data[ property ] }.jpg" alt="${ data[ 'name' ] }">`
-      }
+  splitCategories (data) {
+    data = data.split(',')
+    let res = []
+    for (let k = 0;k < data.length;k++) {
+      res[ k ] = `<li><a href="/">${ data[ k ] }</a></li>`
     }
-    return str;
+    return res.join('');
   }
+
+
+  // remove empty or undefined keys and add inner HTML
+  // createHTML (data) {
+  //   let str = "";
+  //   for (const property in data) {
+  //     // console.log(`${ property }: ${ data[ property ].length }`);
+  //     if (
+  //       data[ property ] !== "" &&
+  //       data[ property ] !== undefined &&
+  //       data[ property ].length > 0 &&
+  //       property !== "model" &&
+  //       property !== "edited" &&
+  //       property !== "created" &&
+  //       property !== "url"
+  //     ) {
+  //       str += `<p class="c-card__info-text"> <i>${ property }: </i> ${ data[ property ] }</p>`;
+  //     }
+  //     if (property === "img") {
+  //       str += `<img src="/src/img/${ data[ property ] }.jpg" alt="${ data[ 'name' ] }">`
+  //     }
+  //   }
+  //   return str;
+  // }
 
   // loading data animation
   showLoading (bol) {

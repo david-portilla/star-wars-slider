@@ -10,6 +10,7 @@
   margin: 0 auto;
   margin-bottom: 2rem;
   margin-top: 2rem;
+  min-width: 100%;
   position: relative;
   text-align: center;
   width: 100%;
@@ -202,8 +203,8 @@
       width: 100%;
 
       @media only screen and ($sm) {
-        padding-right: 4rem;
-        width: 70%;
+        // padding-right: 4rem;
+        // width: 70%;
       }
 
       &::after {
@@ -231,7 +232,7 @@
     text-align: center;
 
     @media only screen and ($sm) {
-      justify-content: space-between;
+      justify-content: space-around;
       text-align: left;
     }
 
@@ -241,8 +242,12 @@
       font-size: 1.3rem;
       font-weight: 400;
       line-height: 1.1;
+      margin-right: 1rem;
       text-transform: capitalize;
-      width: 45%;
+
+      @media only screen and ($sm) {
+        margin: 0;
+      }
     }
 
     &-number {
@@ -251,7 +256,6 @@
       flex-direction: row;
       font-size: 1.6rem;
       line-height: 1.1;
-      width: 55%;
 
       span {
         font-size: 2rem;
@@ -309,9 +313,10 @@
       font-family: $dosis;
       font-size: 1.3rem;
       font-weight: 300;
-      width: 45%;
+      margin-right: 1rem;
 
       @media only screen and ($sm) {
+        margin: 0;
         width: auto;
       }
     }
