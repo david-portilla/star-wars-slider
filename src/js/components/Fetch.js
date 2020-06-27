@@ -22,8 +22,8 @@ class Fetch {
     this.slider = new Slider()  // eslint-disable-line
 
     // call type element to draw
-    this.fetchItem('starships')
-    // this.fetchItem("vehicles");
+    // this.fetchItem('starships')
+    this.fetchItem("vehicles");
   }
 
   // fetch Data from SWAPI
@@ -107,7 +107,7 @@ class Fetch {
     cardElement.innerHTML = `
     <div class="c-card__image">
       <div class="c-card__overlay"></div>
-      <img src="./src/img${data.img }.png" alt="This is an starship">
+      <img src="./src/img${data.img }.png" alt="${ data.name }">
     </div>
 
     <div class="c-card__info">
@@ -155,7 +155,7 @@ class Fetch {
 
         <div class="c-card__cart">
           <div class="c-card__cart-price">
-            $${parseInt((data.cost_in_credits / 1000)).toLocaleString() }
+            ${this.updatePrice(data.cost_in_credits) }
           </div>
           <button class="c-card__cart-cta">
             add to cart
@@ -177,29 +177,10 @@ class Fetch {
     return res.join('');
   }
 
-
-  // remove empty or undefined keys and add inner HTML
-  // createHTML (data) {
-  //   let str = "";
-  //   for (const property in data) {
-  //     // console.log(`${ property }: ${ data[ property ].length }`);
-  //     if (
-  //       data[ property ] !== "" &&
-  //       data[ property ] !== undefined &&
-  //       data[ property ].length > 0 &&
-  //       property !== "model" &&
-  //       property !== "edited" &&
-  //       property !== "created" &&
-  //       property !== "url"
-  //     ) {
-  //       str += `<p class="c-card__info-text"> <i>${ property }: </i> ${ data[ property ] }</p>`;
-  //     }
-  //     if (property === "img") {
-  //       str += `<img src="/src/img/${ data[ property ] }.jpg" alt="${ data[ 'name' ] }">`
-  //     }
-  //   }
-  //   return str;
-  // }
+  updatePrice (data) {
+    let price = parseInt((data / 1000)).toLocaleString()
+    return data === 'unknown' ? 'Free' : '$' + price
+  }
 
   // loading data animation
   showLoading (bol) {
