@@ -17,8 +17,6 @@
 
   @media only screen and ($md) {
     display: block;
-    // margin-bottom: 4rem;
-    // margin-top: 4rem;
     margin: 0;
   }
 
@@ -204,7 +202,7 @@
 
       @media only screen and ($sm) {
         // padding-right: 4rem;
-        // width: 70%;
+        width: 70%;
       }
 
       &::after {
@@ -232,7 +230,8 @@
     text-align: center;
 
     @media only screen and ($sm) {
-      justify-content: space-around;
+      justify-content: end;
+      // justify-content: space-around;
       text-align: left;
     }
 
@@ -245,9 +244,9 @@
       margin-right: 1rem;
       text-transform: capitalize;
 
-      @media only screen and ($sm) {
-        margin: 0;
-      }
+      // @media only screen and ($sm) {
+      //   margin: 0;
+      // }
     }
 
     &-number {
@@ -278,7 +277,7 @@
       align-items: center;
       display: flex;
       flex-direction: row;
-      width: 55%;
+      // width: 55%;
 
       @media only screen and ($sm) {
         border-bottom: 0.2rem solid;
