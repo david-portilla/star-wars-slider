@@ -22,8 +22,8 @@ class Fetch {
     this.slider = new Slider()  // eslint-disable-line
 
     // call type element to draw
-    // this.fetchItem('starships')
-    this.fetchItem("vehicles");
+    this.fetchItem('starships')
+    // this.fetchItem("vehicles");
   }
 
   // fetch Data from SWAPI
@@ -128,8 +128,7 @@ class Fetch {
             <div class="c-card__item">
               <span>cargo cap.</span>
               <div class="c-card__item-number">
-                <span>${data.cargo_capacity / 1000 }</span>
-                <p>m³</p>
+                ${this.updateCargo(data.cargo_capacity) }
               </div>
             </div>
             <div class="c-card__item">
@@ -180,6 +179,11 @@ class Fetch {
   updatePrice (data) {
     let price = parseInt((data / 1000)).toLocaleString()
     return data === 'unknown' ? 'Free' : '$' + price
+  }
+
+  updateCargo (data) {
+    let cargo = data / 1000
+    return isNaN(cargo) ? 'unknown' : `<span>${ cargo }</span> <p>m³</p>`
   }
 
   // loading data animation
