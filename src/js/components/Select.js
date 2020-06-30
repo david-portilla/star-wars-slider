@@ -11,22 +11,15 @@ class Select {
     this.customSelect = select('.c-select')
     this.optionsSelect = selectAll('.c-select__options-custom')
 
-    this.customSelect.addEventListener("click", () => {
-      this.toggleSelect(this.customSelect)
+    this.customSelect.addEventListener("click", function () {
+      this.classList.toggle('is-open')
     })
 
-    for (const option of this.optionsSelect) {
-      option.addEventListener('click', (e) => {
-        // console.log(e.target)
-        // console.log(this.currentOption)
+    for (let i = 0;i < this.optionsSelect.length;i++) {
+      this.optionsSelect[ i ].addEventListener('click', (e) => {
         this.currentOption(e.target)
       })
     }
-
-  }
-
-  toggleSelect (obj) {
-    obj.classList.toggle('is-open')
   }
 
   currentOption (item) {
