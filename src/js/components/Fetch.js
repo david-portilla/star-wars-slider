@@ -1,4 +1,4 @@
-import { selectId } from '../helpers'
+import { select, selectId } from '../helpers'
 import Slider from './Slider'
 
 /*eslint-disable */
@@ -19,7 +19,10 @@ class Fetch {
   init () {
     // console.log('init Fetch')
 
-    this.slider = new Slider()  // eslint-disable-line
+    // create slider
+    if (select('.c-slider')) { // Check if it exists
+      this.slider = new Slider()  // eslint-disable-line
+    }
 
     // call type element to draw
     this.fetchItem('starships')
