@@ -13,15 +13,26 @@
 <body>
   <header class="c-brand">
     <div class="c-brand__logo"></div>
-    <nav class="c-brand__controls" aria-label="controls">
-      <select name="control" id="control">
-        <option value="vehicles">Vehicles</option>
-        <option value="vehicles">starships</option>
-      </select>
+
+    <nav class="c-brand__controls" aria-label="slider control">
+      <div class="c-select">
+        <div class="c-select__custom">
+          <button class="c-select__trigger">
+            <p class="c-select__trigger-text">Vehicles</p>
+            <div class="c-select__trigger-icon"></div>
+          </button>
+          <div class="c-select__options">
+            <span class="c-select__options-custom selected" data-value="vehicles">Vehicles</span>
+            <span class="c-select__options-custom" data-value="starships">Starships</span>
+          </div>
+        </div>
+      </div>
+      <!-- custom-select -->
     </nav>
     <!-- c-brand__controls -->
+
     <div class="c-brand__hire">
-      <a href="/">hire developer</a>
+      <a class="c-brand__hire-link" href="/">hire developer</a>
     </div>
     <!-- c-brand__hire -->
   </header>
