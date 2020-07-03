@@ -4,15 +4,15 @@ import Fetch from './Fetch'
 
 class Select {
   constructor() {
+    this.customSelect = select('.c-select')
+    this.optionsSelect = selectAll('.c-select__options-custom')
+    this.triggerText = select('.c-select__trigger-text')
 
     this.init()
   }
 
   init () {
     // console.log('Select.js')
-    this.customSelect = select('.c-select')
-    this.optionsSelect = selectAll('.c-select__options-custom')
-    this.triggerText = select('.c-select__trigger-text')
 
     // toogle menu
     this.customSelect.addEventListener('click', function () {
