@@ -31,12 +31,13 @@
     justify-content: space-between;
     left: -1.5rem;
     position: absolute;
-    top: calc(50% - 2rem);
+    top: calc(45% - 2rem);
     width: calc(100% + 3rem);
 
-    @media only screen and ($sm) {
+    @media only screen and ($md) {
       left: 0;
       right: 0;
+      top: calc(50% - 2rem);
       // left: -3rem;
       // right: -6rem;
       width: auto;
