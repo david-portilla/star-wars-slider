@@ -45,6 +45,9 @@ class Fetch {
         data.results ? this.showLoading(false) : this.showLoading(true)
       }
 
+      // set Max limit after finish adding data
+      this.slider.setMaxLimit()
+
       // add items in parallel
       // Promise.all(data.results)
       //   .then((values) => {
