@@ -6,7 +6,6 @@ import Slider from './Slider'
 class Fetch {
   constructor() {
     // console.log('Fetch.js')
-    // this.selectId = document.getElementById.bind(document);
     this.loading = selectId('loading')
     this.container = selectId('listContainer')
 
@@ -18,59 +17,45 @@ class Fetch {
   }
   init () {
     // console.log('init Fetch')
-
     // create slider
-    if (select('.c-slider')) { // Check if it exists
+    if (select('.c-slider')) {
       this.slider = new Slider()  // eslint-disable-line
     }
-
-    // call type element to draw
-    this.fetchItem('starships')
-    // this.fetchItem("vehicles");
   }
 
   // fetch Data from SWAPI
   async fetchItem (id) {
+    this.slider.resetValues()
     try {
-      data ? this.showLoading(false) : this.showLoading(true)
       const params = {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json'
         }
-      };
+      }
       const url = `https://swapi.dev/api/${ id }/`;
       const response = await fetch(url, params);
       // console.log(response);
       const data = await response.json();
 
+      // add items in order
+      for (let k = 0;k < data.results.length;k++) {
+        data.results[ k ].img = this.pullImages(data.results[ k ].name, id)
+        this.addDataToDOM(data.results[ k ], k);
+        data.results ? this.showLoading(false) : this.showLoading(true)
+      }
+
       // add items in parallel
-      Promise.all(data.results)
-        .then((values) => {
-          this.awaitMovies(values, id)
-        })
-        .catch(function () {
-          console.log("Promise all failure!");
-        });
+      // Promise.all(data.results)
+      //   .then((values) => {
+      //     this.awaitMovies(values, id)
+      //   })
+      //   .catch(function () {
+      //     console.log("Promise all failure!");
+      //   });
+
     } catch (error) {
       console.log("Fetch Item Failed: ", error.message);
-    }
-  }
-
-  // await each related movie
-  async awaitMovies (results, type) {
-    try {
-      for (let k = 0;k < results.length;k++) {
-        results[ k ].films = await this.fetchRelatedMovies(results[ k ].films)
-        results[ k ].img = this.pullImages(results[ k ].name, type)
-        this.addDataToDOM(results[ k ], k);
-        results ? this.showLoading(false) : this.showLoading(true)
-      }
-      // when finish adding data
-      this.slider.setMaxLimit()
-      console.log('slider.setMaxLimit()')
-    } catch (error) {
-      console.log("Awaiting Movies Failed: ", error.message);
     }
   }
 
@@ -82,23 +67,6 @@ class Fetch {
     if (type === 'starships') {
       return `/starships/${ name.replace(' ', '-') }`
     }
-  }
-
-  // fecth related movies for each Item
-  async fetchRelatedMovies (moviesURL) {
-    let movieNames = [];
-    let filmObj = [];
-    let filmName = [];
-    try {
-      for (let i = 0;i < moviesURL.length;i++) {
-        filmObj[ i ] = await fetch(moviesURL[ i ]);
-        filmName[ i ] = await filmObj[ i ].json();
-        movieNames[ i ] = filmName[ i ].title;
-      }
-    } catch (error) {
-      console.log("Fetch Related Movies Failed: ", error.message);
-    }
-    return movieNames;
   }
 
   // drawing DATA into DOM
@@ -170,6 +138,13 @@ class Fetch {
     this.container.appendChild(cardElement);
   }
 
+  // Remove previous results
+  resetDOM () {
+    this.container.innerHTML = ``
+    this.container.style.removeProperty('transform')
+  }
+
+  // Split each category
   splitCategories (data) {
     data = data.split(',')
     let res = []
@@ -179,17 +154,19 @@ class Fetch {
     return res.join('');
   }
 
+  // Set dollar format
   updatePrice (data) {
     let price = parseInt((data / 1000)).toLocaleString()
     return data === 'unknown' ? 'Free' : '$' + price
   }
 
+  // Set cargo cap format
   updateCargo (data) {
     let cargo = data / 1000
     return isNaN(cargo) ? 'unknown' : `<span>${ cargo }</span> <p>m³</p>`
   }
 
-  // loading data animation
+  // Show loading animation
   showLoading (bol) {
     if (bol === true) {
       this.loading.classList.add("show");
@@ -197,7 +174,43 @@ class Fetch {
       this.loading.classList.remove("show");
     }
   }
+
+  // await each related movie
+  async awaitMovies (results, type) {
+    try {
+      for (let k = 0;k < results.length;k++) {
+        results[ k ].films = await this.fetchRelatedMovies(results[ k ].films)
+        results[ k ].img = this.pullImages(results[ k ].name, type)
+        this.addDataToDOM(results[ k ], k);
+        // results ? this.showLoading(false) : this.showLoading(true)
+      }
+      // when finish adding data
+      this.slider.setMaxLimit()
+      console.log('slider.setMaxLimit()')
+    } catch (error) {
+      console.log("Awaiting Movies Failed: ", error.message);
+    }
+  }
+
+  // fecth related movies for each Item
+  async fetchRelatedMovies (moviesURL) {
+    let movieNames = [];
+    let filmObj = [];
+    let filmName = [];
+    try {
+      for (let i = 0;i < moviesURL.length;i++) {
+        filmObj[ i ] = await fetch(moviesURL[ i ]);
+        filmName[ i ] = await filmObj[ i ].json();
+        movieNames[ i ] = filmName[ i ].title;
+      }
+    } catch (error) {
+      console.log("Fetch Related Movies Failed: ", error.message);
+    }
+    return movieNames;
+  }
+
 }
+
 export default Fetch
 
 /*eslint-enable */
