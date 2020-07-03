@@ -14,10 +14,20 @@ class Select {
     this.optionsSelect = selectAll('.c-select__options-custom')
     this.triggerText = select('.c-select__trigger-text')
 
-    this.customSelect.addEventListener("click", function () {
+    // toogle menu
+    this.customSelect.addEventListener('click', function () {
       this.classList.toggle('is-open')
     })
 
+    // Listen for all clicks on the document
+    document.addEventListener('click', (e) => {
+      // If the click happened inside the the container, bail
+      if (!e.target.closest('.c-select')) {
+        this.customSelect.classList.remove('is-open')
+      }
+    }, false)
+
+    // listen click inside options
     for (let i = 0;i < this.optionsSelect.length;i++) {
       this.optionsSelect[ i ].addEventListener('click', (e) => {
         this.currentOption(e.target)
