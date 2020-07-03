@@ -27,14 +27,15 @@ class Slider {
       this.controlDirection(e.target.id)
     });
     this.sliderPosition = 0
-    window.addEventListener('resize', (e) => {
-      this.updateWidth(e)
-    });
+    this.currentSlide = 1
+    window.addEventListener('resize', () => this.updateWidth())
   }
 
   // handle direction of the slider
   controlDirection (id) {
     this.swipeAmount = select('.c-slider__container').offsetWidth
+    this.setMaxLimit()
+
     if (id === 'js-next') {
       this.sliderPosition -= this.swipeAmount;
       if (Math.abs(this.sliderPosition + this.swipeAmount) >= (this.maxLimit - this.swipeAmount) && this.maxLimit > 0) {
@@ -60,11 +61,11 @@ class Slider {
 
   // update width of each card
   updateWidth () {
-    if (this.maxLimit > 0) {
-      this.swipeAmount = select('.c-slider__container').offsetWidth
-      this.sliderPosition = -((this.swipeAmount * this.currentSlide) - this.swipeAmount)
+    this.swipeAmount = select('.c-slider__container').offsetWidth
+    this.setMaxLimit()
+    this.sliderPosition = -((this.swipeAmount * this.currentSlide) - this.swipeAmount)
+    if (this.currentSlide > 0) {
       this.sliderContainer.style.transform = `translateX(${ this.sliderPosition }px)`;
-      this.maxLimit = parseInt(selectAll('.c-card').length) * parseInt(this.swipeAmount)
     }
   }
 
