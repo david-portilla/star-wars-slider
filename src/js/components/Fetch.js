@@ -143,6 +143,7 @@ class Fetch {
 
   // Remove previous results
   resetDOM () {
+    this.showLoading(true)
     this.container.innerHTML = ``
     this.container.style.removeProperty('transform')
   }
