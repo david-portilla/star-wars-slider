@@ -67,6 +67,14 @@ class Slider {
       this.maxLimit = parseInt(selectAll('.c-card').length) * parseInt(this.swipeAmount)
     }
   }
+
+  // reset initial value
+  resetValues () {
+    this.sliderPosition = 0
+    this.maxLimit = 0
+    this.currentSlide = 0
+  }
+
 }
 
 export default Slider
