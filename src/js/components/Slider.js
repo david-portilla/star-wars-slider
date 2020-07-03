@@ -39,14 +39,14 @@ class Slider {
       this.sliderPosition -= this.swipeAmount;
       if (Math.abs(this.sliderPosition + this.swipeAmount) >= (this.maxLimit - this.swipeAmount) && this.maxLimit > 0) {
         this.sliderPosition = 0
-        console.log('next limit reach')
+        // console.log('next limit reach')
       }
     }
     if (id === 'js-prev') {
       this.sliderPosition += this.swipeAmount;
       if (this.sliderPosition === this.swipeAmount && this.maxLimit > 0) {
         this.sliderPosition = -(this.maxLimit - this.swipeAmount)
-        console.log('prev limit reach')
+        // console.log('prev limit reach')
       }
     }
     this.sliderContainer.style.transform = `translateX(${ this.sliderPosition }px)`;
