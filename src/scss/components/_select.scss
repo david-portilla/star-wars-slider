@@ -22,8 +22,10 @@
     color: $blue;
     cursor: pointer;
     display: flex;
+    font-weight: 700;
     justify-content: space-between;
     padding: 1.2rem 2rem;
+    text-transform: uppercase;
 
     &-text {
       color: $blue;
@@ -34,20 +36,24 @@
     }
 
     &-icon {
-      background-color: blue;
-      // background-image: url("/themes/custom/crrp/dist/img/icons/arrow-down-desktop.svg");
       background-position: center;
       background-repeat: no-repeat;
       background-size: contain;
       border: none;
+      border-bottom: 0.2rem solid $blue;
       border-radius: 0;
-      height: 1.5rem;
-      margin-left: 1rem;
-      width: 1.5rem;
+      border-right: 0.2rem solid $blue;
+      height: 1rem;
+      margin-bottom: 0.25rem;
+      margin-left: 1.5rem;
+      transform: rotateZ(45deg);
+      transition: all ease-in 0.2s;
+      width: 1rem;
     }
   }
 
   &__options {
+    background-color: black;
     border: 0.1rem solid $blue;
     display: block;
     left: 0;
@@ -93,7 +99,9 @@
     }
 
     .c-select__trigger-icon {
-      background-color: lime;
+      margin-bottom: -0.5rem;
+      transform: rotateZ(-135deg);
+      transition: all ease-out 0.2s;
     }
   }
 }
