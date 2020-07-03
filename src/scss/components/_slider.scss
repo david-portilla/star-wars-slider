@@ -129,6 +129,7 @@
   &__list {
     display: flex;
     flex-direction: row;
+    min-height: 45rem;
     transition: 0.3s ease-in all;
     width: 100%;
 
