@@ -6,8 +6,36 @@
   border: none;
   border: 0.1rem solid $blue;
   display: block;
+  position: relative;
   user-select: none;
   width: 100%;
+
+  &::after,
+  &::before {
+    background-color: rgba($blue, 0.3);
+    content: '';
+    display: block;
+    display: none;
+    height: 0.1rem;
+    max-width: 15rem;
+    position: absolute;
+    top: 50%;
+    transition: all ease-in 0.2s;
+    width: 100%;
+    z-index: 2;
+
+    @media only screen and ($md) {
+      display: block;
+    }
+  }
+
+  &::after {
+    left: 17rem;
+  }
+
+  &::before {
+    right: 17rem;
+  }
 
   &__custom {
     display: flex;
@@ -92,6 +120,12 @@
   }
 
   &.is-open {
+    &::after,
+    &::before {
+      background-color: rgba($blue, 0.7);
+      transition: all ease-out 0.2s;
+    }
+
     .c-select__options {
       opacity: 1;
       pointer-events: all;
