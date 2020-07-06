@@ -1,5 +1,3 @@
-# Star Wars Slider
-
 <div align="center">
 
   <h1> 🚀🛸👽 Star Wars Slider 👽🛸🚀 </h1>
