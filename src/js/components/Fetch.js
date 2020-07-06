@@ -65,10 +65,10 @@ class Fetch {
   // add image from folder
   pullImages (name, type) {
     if (type === 'vehicles') {
-      return `/vehicles/${ name.replace(' ', '-') }`
+      return `/vehicles/${ name.replace(' ', '-').replace('/', '-') }`
     }
     if (type === 'starships') {
-      return `/starships/${ name.replace(' ', '-') }`
+      return `/starships/${ name.replace(' ', '-').replace('/', '-') }`
     }
   }
 
