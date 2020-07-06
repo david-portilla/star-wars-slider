@@ -21,6 +21,10 @@ class Fetch {
     if (select('.c-slider')) {
       this.slider = new Slider()  // eslint-disable-line
     }
+
+    // call type element to draw
+    // this.fetchItem('starships')
+    // this.fetchItem("vehicles");
   }
 
   // fetch Data from SWAPI
@@ -30,12 +34,12 @@ class Fetch {
       const params = {
         method: 'GET',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json; charset=utf-8'
         }
       }
       const url = `https://swapi.dev/api/${ id }/`;
-      const response = await fetch(url, params);
-      // console.log(response);
+      const response = await fetch(url);
+      console.log(response);
       const data = await response.json();
 
       // add items in order
