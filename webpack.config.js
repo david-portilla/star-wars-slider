@@ -107,17 +107,5 @@ module.exports = {
       contentBase: __dirname + '/src',
       server: { baseDir: [ './' ] }
     })
-  ],
-
-  optimization: {
-    // minimizer: [
-    //   // uglify JS
-    //   new UglifyJsPlugin({
-    //     test: /\.js(\?.*)?$/i,
-    //     cache: true,
-    //     parallel: true,
-    //     sourceMap: false
-    //   }),
-    // ]
-  }
+  ]
 };
